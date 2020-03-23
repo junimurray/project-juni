@@ -9,19 +9,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity(name = "users")
-public class User implements Volunteer {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID user_id;
     private String first_name;
     private String last_name;
     
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="parent_id")
-    private List<User> users;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "child",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "child_id")
+    )
+    private List<User> child;
+
 
 
 	public UUID getUser_id() {
@@ -42,11 +49,13 @@ public class User implements Volunteer {
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
-	public List<User> getUsers() {
-		return users;
+
+	public List<User> getChild() {
+		return child;
 	}
-	public void setUsers(List<User> users) {
-		this.users = users;
+	public void setChild(List<User> child) {
+		this.child = child;
 	}
+
 
 }
