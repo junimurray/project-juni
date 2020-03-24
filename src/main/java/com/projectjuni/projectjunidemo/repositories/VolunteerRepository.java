@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.projectjuni.projectjunidemo.models.Volunteer;
 
-public interface UserRepository extends JpaRepository<Volunteer, Long>{
+public interface VolunteerRepository extends JpaRepository<Volunteer, Long>{
 
 }
