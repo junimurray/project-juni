@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import com.projectjuni.projectjunidemo.models.committees.Position;
+import com.projectjuni.projectjunidemo.models.committees.PraiseAndWorshipCommittee;
 
 @Entity(name = "volunteers")
 public class Volunteer {
@@ -20,13 +24,26 @@ public class Volunteer {
     private String first_name;
     private String last_name;
     
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "committee_volunteers",
+            joinColumns = @JoinColumn(name = "volunteer_id"),
+            inverseJoinColumns = @JoinColumn(name = "committee_id")
+    )
+    private List<PraiseAndWorshipCommittee> committees;
+    
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "child",
             joinColumns = @JoinColumn(name = "volunteer_id"),
             inverseJoinColumns = @JoinColumn(name = "child_id")
     )
-    private List<Volunteer> child;
+    private List<Volunteer> members;
+    
+    
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "volunteer_id")
+    private List<Position> positions;
 
 	public UUID getVolunteer_id() {
 		return volunteer_id;
@@ -52,12 +69,20 @@ public class Volunteer {
 		this.last_name = last_name;
 	}
 
-	public List<Volunteer> getChild() {
-		return child;
+	public List<Volunteer> getMembers() {
+		return members;
 	}
 
-	public void setChild(List<Volunteer> child) {
-		this.child = child;
+	public void setMembers(List<Volunteer> members) {
+		this.members = members;
+	}
+
+	public List<Position> getPositions() {
+		return positions;
+	}
+
+	public void setPositions(List<Position> positions) {
+		this.positions = positions;
 	}
 
 }
