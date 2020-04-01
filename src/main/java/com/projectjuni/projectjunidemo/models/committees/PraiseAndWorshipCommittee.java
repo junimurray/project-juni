@@ -3,20 +3,21 @@ package com.projectjuni.projectjunidemo.models.committees;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.projectjuni.projectjunidemo.models.Item;
 import com.projectjuni.projectjunidemo.models.Volunteer;
 
-@Entity(name = "committees")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity
+@DiscriminatorValue(value = "p & w")
 public class PraiseAndWorshipCommittee extends Committee {
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "committee_volunteers",
             joinColumns = @JoinColumn(name = "committee_id"),

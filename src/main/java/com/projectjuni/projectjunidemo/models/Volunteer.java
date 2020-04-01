@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,14 +14,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-import com.projectjuni.projectjunidemo.models.committees.Position;
 import com.projectjuni.projectjunidemo.models.committees.PraiseAndWorshipCommittee;
 
 @Entity(name = "volunteers")
 public class Volunteer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID volunteer_id;
+    @Column(name = "volunteer_id")
+    private UUID volunteerId;
     private String first_name;
     private String last_name;
     
@@ -45,12 +46,12 @@ public class Volunteer {
 	@JoinColumn(name = "volunteer_id")
     private List<Position> positions;
 
-	public UUID getVolunteer_id() {
-		return volunteer_id;
+	public UUID getVolunteerId() {
+		return volunteerId;
 	}
 
 	public void setVolunteerId(UUID volunteer_id) {
-		this.volunteer_id = volunteer_id;
+		this.volunteerId = volunteer_id;
 	}
 
 	public String getFirstName() {

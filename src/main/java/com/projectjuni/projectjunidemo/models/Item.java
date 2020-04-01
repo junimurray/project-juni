@@ -1,4 +1,4 @@
-package com.projectjuni.projectjunidemo.models.committees;
+package com.projectjuni.projectjunidemo.models;
 
 import java.util.UUID;
 

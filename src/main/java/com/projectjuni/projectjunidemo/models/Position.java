@@ -1,4 +1,4 @@
-package com.projectjuni.projectjunidemo.models.committees;
+package com.projectjuni.projectjunidemo.models;
 
 import java.io.Serializable;
 import java.util.UUID;
