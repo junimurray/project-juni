@@ -28,9 +28,9 @@ import com.projectjuni.projectjunidemo.repositories.VolunteerRepository;
 import com.projectjuni.projectjunidemo.repositories.committees.CommitteeRepository;
 import com.projectjuni.projectjunidemo.repositories.committees.DefaultRepository;
 import com.projectjuni.projectjunidemo.repositories.committees.PraiseAndWorshipRepository;
-import com.projectjuni.projectjunidemo.testInit.CommitteeInitialize;
-import com.projectjuni.projectjunidemo.testInit.InvokeInitializeDB;
-import com.projectjuni.projectjunidemo.testInit.VolunteerInitialize;
+import com.projectjuni.projectjunidemo.repositories.testInit.CommitteeInitialize;
+import com.projectjuni.projectjunidemo.repositories.testInit.InvokeInitializeDB;
+import com.projectjuni.projectjunidemo.repositories.testInit.VolunteerInitialize;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 //@DataJpaTest
