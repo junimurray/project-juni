@@ -1,0 +1,15 @@
+{
+    "committee_id": "09b9fd99-db73-4449-b5ed-7b6e03ce1128",
+    "name": "Praise and worship",
+    "description": "praise & worship",
+    "volunteers": [],
+    "items": [
+        {
+            "name": "microphone",
+            "description": "bose",
+            "quantity": 1,
+            "itemId": "f38bf68e-c769-4fde-9cdd-ec5047bb6c33"
+        }
+    ],
+    "shortName": "p & w"
+}
